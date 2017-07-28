@@ -1,17 +1,21 @@
 # valerianomanassero/curator-centos
 A Docker container for Curator, a maintenance task for Elasticsearch scheduled every hour.
 The image is based on a CentOS 7 image.
+Default configuration is to purge logstash-* indices older than 30 days; you can override actions and configurations mounting files as in examples below.
 
 ## Recommended Options
 
-**Environment**
+**Files**
 
-- ENV ELASTICSEARCH_HOSTNAME - Defines Elasticsearch instance hostname
-- ENV ELASTICSEARCH_PORT - Defines Elasticsearch instance port
-- ENV ELASTICSEARCH_SPACE_THRESHOLD - Defines the maximum space threshold (in GB) for Elasticsearch indexes. Exceeding space will be cut. 
+- ./configs/curator.yml:/root/.curator/curator.yml:ro (Read Only) - General configuration file
+- ./configs/actions.yml:/root/.curator/actions.yml:ro (Read Only) - Actions configuration file 
 
-## Docker usage
+## Docker example usages
 
 ```
-docker run -e ENV ELASTICSEARCH_HOSTNAME=elasticsearch -e ENV ELASTICSEARCH_PORT=9200 -e ENV ELASTICSEARCH_SPACE_THRESHOLD=10 -d valerianomanassero/curator-centos
+docker run -d valerianomanassero/curator-centos
+```
+
+```
+docker run -v ./configs/curator.yml:/root/.curator/curator.yml:ro -v ./configs/actions.yml:/root/.curator/actions.yml:ro -d valerianomanassero/curator-centos
 ```
