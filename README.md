@@ -17,5 +17,5 @@ docker run -d valerianomanassero/curator-centos:5.1.2
 ```
 
 ```
-docker run -v ./configs/curator.yml:/root/.curator/curator.yml:ro -v ./configs/actions.yml:/root/.curator/actions.yml:ro -d valerianomanassero/curator-centos
+docker run -v ./configs/curator.yml:/root/.curator/curator.yml:ro -v ./configs/actions.yml:/root/.curator/actions.yml:ro -d valerianomanassero/curator-centos:5.1.2
 ```
