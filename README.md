@@ -13,7 +13,7 @@ Default configuration is to purge logstash-* indices older than 30 days; you can
 ## Docker example usages
 
 ```
-docker run -d valerianomanassero/curator-centos
+docker run -d valerianomanassero/curator-centos:5.1.2
 ```
 
 ```
