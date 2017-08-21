@@ -2,7 +2,7 @@ FROM centos:7
 
 MAINTAINER Valeriano Manassero https://github.com/valeriano-manassero
 
-ENV CURATOR_VERSION 5.1.1
+ENV CURATOR_VERSION 5.1.2
 
 RUN yum -y update && \
     yum clean all && \
